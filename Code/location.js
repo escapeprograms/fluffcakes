@@ -1,6 +1,6 @@
  var locations = [{//0
       name:"The Village",
-      src:"/eastergame/Images/Village/village.png",
+      src:"/fluffcakes/Images/Village/village.png",
       obj:[
         {//chest
           id:"villagechest",
@@ -8,7 +8,7 @@
           x:50,
           y:83,
           style:"transform:translate(-50%,-50%);width:7%;",
-          html:"<img width='100%' src='/eastergame/Images/Misc/chest.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Misc/chest.png'>",
           onclick:function(){
             if (check("hasclosetkey",true)){
               findegg(10);
@@ -23,7 +23,7 @@
           x:50,
           y:79.7,
           style:"transform:translate(-50%,-50%);width:13%;",
-          html:"<img width='100%' src='/eastergame/Images/Village/fire.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Village/fire.png'>",
           onclick:function(){
             alert("Whoosh, you put out the fire.");
             hide("villagefire",[0,1]);
@@ -36,7 +36,7 @@
           x:16.25,
           y:77.25,
           style:"transform:translate(-50%,-50%);width:5.7%;",
-          html:"<img width='100%' src='/eastergame/Images/Village/door.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Village/door.png'>",
           onclick:function(){
             visit(1);
           }
@@ -47,7 +47,7 @@
           x:40.25,
           y:61.25,
           style:"transform:translate(-50%,-50%);width:5.7%;",
-          html:"<img width='100%' src='/eastergame/Images/Village/door.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Village/door.png'>",
           onclick:function(){
             visit(2);
           }
@@ -58,7 +58,7 @@
           x:66.5,
           y:59.5,
           style:"transform:translate(-50%,-50%);width:5.7%;",
-          html:"<img width='100%' src='/eastergame/Images/Village/door.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Village/door.png'>",
           onclick:function(){
             alert("A locked house");
           }
@@ -69,7 +69,7 @@
           x:90.25,
           y:78,
           style:"transform:translate(-50%,-50%);width:5.7%;",
-          html:"<img width='100%' src='/eastergame/Images/Village/door.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Village/door.png'>",
           onclick:function(){
             visit(4);
           }
@@ -78,14 +78,14 @@
     },
     {//1
       name:"The First Village House",
-      src:"/eastergame/Images/Village/house.png",
+      src:"/fluffcakes/Images/Village/house.png",
       obj:[
         {//rug
           unlocked:true,
           x:50,
           y:90,
           style:"transform:translate(-50%,-50%);width:45%;",
-          html:"<img width='100%' src='/eastergame/Images/Village/rug.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Village/rug.png'>",
           onclick:function(){
             if (!egglist[9].found){
               unlock("egg9",[1,2]);
@@ -97,7 +97,7 @@
           x:34,
           y:57,
           style:"transform:translate(-50%,-50%);width:18%;",
-          html:"<img width='100%' src='/eastergame/Images/Village/closet.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Village/closet.png'>",
           onclick:function(){
             check("hasclosetkey",false,function(){unlock("closetkey",[1,3]);});
           }
@@ -108,7 +108,7 @@
           x:64,
           y:93,
           style:"transform:translate(-50%,-50%);width:6%;",
-          html:"<img width='100%' src='/eastergame/Images/Misc/egg.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Misc/egg.png'>",
           onclick:function(){
             findegg(9);
           }
@@ -119,7 +119,7 @@
           x:34,
           y:35,
           style:"transform:translate(-50%,-50%) rotate(90deg);width:2%;",
-          html:"<img width='100%' src='/eastergame/Images/Misc/key.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Misc/key.png'>",
           onclick:function(){
             check("hasclosetkey",false,function(){
             vars.hasclosetkey=true;
@@ -133,14 +133,14 @@
     },
      {//2
       name:"The Second Village House",
-      src:"/eastergame/Images/Village/house.png",
+      src:"/fluffcakes/Images/Village/house.png",
       obj:[
         {//chest
           unlocked:true,
           x:50,
           y:80,
           style:"transform:translate(-50%,-50%);width:20%;",
-          html:"<img width='100%' src='/eastergame/Images/Misc/chest.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Misc/chest.png'>",
           onclick:function(){
             check("hasvillagekey",false,()=>{unlock("rugkey",[2,1]);});
           }
@@ -151,7 +151,7 @@
           x:50,
           y:75,
           style:"transform:translate(-50%,-50%);width:8%;",
-          html:"<img width='100%' src='/eastergame/Images/Misc/key.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Misc/key.png'>",
           onclick:function(){
             unlock("mapbtn1");
             hide("rugkey",[2,1]);
@@ -165,20 +165,20 @@
     },
      {//3
       name:"The Third Village House",
-      src:"/eastergame/Images/Village/house.png",
+      src:"/fluffcakes/Images/Village/house.png",
       obj:[
         ]
     },
     {//4
       name:"The Last Village House",
-      src:"/eastergame/Images/Village/house.png",
+      src:"/fluffcakes/Images/Village/house.png",
       obj:[
         {//rug0
           unlocked:true,
           x:10,
           y:50,
           style:"transform:translate(-50%,-50%) rotate(90deg);width:45%;",
-          html:"<img width='100%' src='/eastergame/Images/Village/rug.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Village/rug.png'>",
           onclick:function(){
             rugClick(0);
           }
@@ -188,7 +188,7 @@
           x:50,
           y:90,
           style:"transform:translate(-50%,-50%);width:45%;",
-          html:"<img width='100%' src='/eastergame/Images/Village/rug.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Village/rug.png'>",
           onclick:function(){
             rugClick(1);
           }
@@ -198,7 +198,7 @@
           x:90,
           y:50,
           style:"transform:translate(-50%,-50%) rotate(90deg);width:45%;",
-          html:"<img width='100%' src='/eastergame/Images/Village/rug.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Village/rug.png'>",
           onclick:function(){
             rugClick(2);
           },
@@ -208,7 +208,7 @@
           x:50,
           y:10,
           style:"transform:translate(-50%,-50%);width:45%;",
-          html:"<img width='100%' src='/eastergame/Images/Village/rug.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Village/rug.png'>",
           onclick:function(){
             rugClick(3);
           }
@@ -219,7 +219,7 @@
           x:50,
           y:50,
           style:"transform:translate(-50%,-50%) rotate(45deg);width:60%;",
-          html:"<img width='100%' src='/eastergame/Images/Village/rug.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Village/rug.png'>",
           onclick:function(){
             alert("There are two buttons behind the rug.");
             hide("midrughouse",[4,4]);
@@ -255,7 +255,7 @@
           x:50,
           y:90,
           style:"transform:translate(-50%,-50%);width:5%;",
-          html:"<img src='/eastergame/Images/Misc/key.png'>",
+          html:"<img src='/fluffcakes/Images/Misc/key.png'>",
           onclick:function(){
             hide("rughousekey",[4,7]);
           }
@@ -264,7 +264,7 @@
     },
     {//5
       name:"The Cemetery",
-      src:"/eastergame/Images/Cemetery/cemetery.png",
+      src:"/fluffcakes/Images/Cemetery/cemetery.png",
       obj:[
         {//Ladder
           id:"cemeteryladder",
@@ -272,7 +272,7 @@
           x:70,
           y:0,
           style:"transform:translate(-50%,0%);width:5%;",
-          html:"<img width='100%' src='/eastergame/Images/Cemetery/ladder.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Cemetery/ladder.png'>",
           onclick:function(){
             visit(6);
           }
@@ -283,7 +283,7 @@
           x:45,
           y:50,
           style:"transform:translate(-50%,0%);width:3%;",
-          html:"<img width='100%' src='/eastergame/Images/Misc/yellowflower.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Misc/yellowflower.png'>",
           onclick:function(){
             findegg(14);
           }
@@ -294,7 +294,7 @@
         x:35.5,
         y:35,
         style:"transform:translate(-50%,-50%) rotate(15deg);width:6%;",
-        html:"<img width='100%' src='/eastergame/Images/Cemetery/shovel.png'>",
+        html:"<img width='100%' src='/fluffcakes/Images/Cemetery/shovel.png'>",
         onclick:function(){
          vars.hasshovel=true;
          hide("cemeteryshovel",[5,2]);
@@ -306,7 +306,7 @@
         x:50,
         y:50,
         style:"transform:translate(-50%,-50%) rotate(15deg);width:8%;",
-        html:"<img width='100%' src='/eastergame/Images/Misc/bush.png'>",
+        html:"<img width='100%' src='/fluffcakes/Images/Misc/bush.png'>",
         onclick:function(){
           hide("cemeterybush",[5,3]);
           unlock("cemeteryface",[5,4]);
@@ -318,7 +318,7 @@
         x:50,
         y:50,
         style:"transform:translate(-50%,-50%); width:6%;",
-        html:"<img width='100%' src='/eastergame/Images/Misc/face.png'>",
+        html:"<img width='100%' src='/fluffcakes/Images/Misc/face.png'>",
         onclick:function(){
           findegg(16);
         }
@@ -329,7 +329,7 @@
         x:73,
         y:65,
         style:"transform:translate(-50%,-50%);width:10%;height:10%",
-        html:"<img width='100%' src='/eastergame/Images/Misc/blank.png'>",
+        html:"<img width='100%' src='/fluffcakes/Images/Misc/blank.png'>",
         onclick:function(){
           check("fluffval",0,()=>{
             check("hasshovel",true,()=>{
@@ -349,7 +349,7 @@
           x:50,
           y:50,
           style:"transform:translate(-50%,-50%);width:100%;",
-          html:"<img width='100%' src='/eastergame/Images/Cemetery/fog.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Cemetery/fog.png'>",
           onclick:function(){
             cemeteryLighten();
           }
@@ -358,7 +358,7 @@
     },
     {//6
       name:"The Cemetery Tree",
-      src:"/eastergame/Images/Cemetery/tree.png",
+      src:"/fluffcakes/Images/Cemetery/tree.png",
       obj:[
         {//Bird Nest Egg
           id:"cemeteryegg",
@@ -366,7 +366,7 @@
           x:65,
           y:55,
           style:"transform:translate(-50%,-50%);width:5%;",
-          html:"<img width='100%' src='/eastergame/Images/Misc/egg.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Misc/egg.png'>",
           onclick:function(){
             findegg(15);
           }
@@ -377,7 +377,7 @@
           x:85,
           y:45,
           style:"transform:translate(-50%,0%);width:10%;",
-          html:"<img width='100%' src='/eastergame/Images/Cemetery/ladder.png'>",
+          html:"<img width='100%' src='/fluffcakes/Images/Cemetery/ladder.png'>",
           onclick:function(){
             visit(5);
           }
@@ -386,14 +386,14 @@
     },
     {//7
       name:"The Rivers End",
-      src:"/eastergame/Images/RiversEnd/riversend.png",
+      src:"/fluffcakes/Images/RiversEnd/riversend.png",
       obj:[
         {//lighthouse door
            unlocked:true,
            x:80,
            y:52,
            style:"transform:translate(-50%,-50%);width:2%;",
-           html:"<img width='100%' src='/eastergame/Images/RiversEnd/lighthousedoor.png'>",
+           html:"<img width='100%' src='/fluffcakes/Images/RiversEnd/lighthousedoor.png'>",
            onclick:function(){
                visit(8);
            }
@@ -403,7 +403,7 @@
            x:15,
            y:20,
            style:"transform:translate(-50%,-50%);width:5%;",
-           html:"<img width='100%' src='/eastergame/Images/Misc/face.png'>",
+           html:"<img width='100%' src='/fluffcakes/Images/Misc/face.png'>",
            onclick:function(){
                visit(9);
            }
@@ -413,7 +413,7 @@
            x:70,
            y:17,
            style:"transform:translate(-50%,-50%);width:30%;height:10%;",
-           html:"<img width='100%' height='100%' src='/eastergame/Images/Misc/blank.png'>",
+           html:"<img width='100%' height='100%' src='/fluffcakes/Images/Misc/blank.png'>",
            onclick:function(){
                visit(10);
            }
@@ -422,7 +422,7 @@
     },
     {//8
       name:"The Lighthouse",
-      src:"/eastergame/Images/RiversEnd/lighthouse.png",
+      src:"/fluffcakes/Images/RiversEnd/lighthouse.png",
       obj:[
         {//fog
            id:"lighthousefog",
@@ -430,7 +430,7 @@
            x:0,
            y:21,
            style:"width:100%;height:58%;",
-           html:"<img width='100%' height='100%' src='/eastergame/Images/RiversEnd/fog.png'>",
+           html:"<img width='100%' height='100%' src='/fluffcakes/Images/RiversEnd/fog.png'>",
            onclick:function(){
                
            }
@@ -440,7 +440,7 @@
            x:50,
            y:80,
            style:"transform:translate(-50%,-100%);width:25%;height:",
-           html:"<img width='100%' src='/eastergame/Images/RiversEnd/light.png'>",
+           html:"<img width='100%' src='/fluffcakes/Images/RiversEnd/light.png'>",
            onclick:function(){
                check("lighthouseopacity",1,()=>{lighthouseLighten();});
            }
@@ -449,14 +449,14 @@
     },
     {//9
       name:"YEET ISLAND",
-      src:"/eastergame/Images/RiversEnd/island.png",
+      src:"/fluffcakes/Images/RiversEnd/island.png",
       obj:[
         {//face
            unlocked:true,
            x:25,
            y:75,
            style:"transform:translate(-50%,-50%);width:100%;",
-           html:"<img width='100%' src='/eastergame/Images/Misc/face.png'>",
+           html:"<img width='100%' src='/fluffcakes/Images/Misc/face.png'>",
            onclick:function(){
                glitchTitle("YEET ISLAND");
            }
@@ -467,7 +467,7 @@
            x:25,
            y:25,
            style:"transform:translate(-50%,-50%);width:25%;height:25%",
-           html:"<img width='100%' src='/eastergame/Images/Misc/blank.png'>",
+           html:"<img width='100%' src='/fluffcakes/Images/Misc/blank.png'>",
            onclick:function(){
                findegg(18);
            }
@@ -476,7 +476,7 @@
     },
     {//10
       name:"The River's View",
-      src:"/eastergame/Images/RiversEnd/island.png",
+      src:"/fluffcakes/Images/RiversEnd/island.png",
       obj:[
         {//unlock path
            unlocked:true,
@@ -492,7 +492,7 @@
     },
     {//11
       name:"The River's Path",
-      src:"/eastergame/Images/RiversEnd/island.png",
+      src:"/fluffcakes/Images/RiversEnd/island.png",
       obj:[
         {//unlock path
            unlocked:true,
@@ -508,7 +508,7 @@
     },
     {//12
       name:"SECRIT",
-      src:"/eastergame/Images/RiversEnd/island.png",
+      src:"/fluffcakes/Images/RiversEnd/island.png",
       obj:[
         {//unlock path
            unlocked:true,
@@ -524,14 +524,14 @@
     },
     {//13
       name:"The Mountains",
-      src:"/eastergame/Images/Mountains/mountains.png",
+      src:"/fluffcakes/Images/Mountains/mountains.png",
       obj:[
         ]
     },
     //not made yet location
     {
       name:"Lol we haven't made this location yet...",
-      src:"/eastergame/Images/Misc/chest.png",
+      src:"/fluffcakes/Images/Misc/chest.png",
       obj:[
         {//chest text
           unlocked:true,
