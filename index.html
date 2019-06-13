@@ -83,7 +83,7 @@ h1, h2, h3, p, span {
   #location {
     height:100%;
   }
-  #area-container {
+  #area-container, fluff-container {
     border:2px dashed black;
     position:relative;
   }
@@ -252,8 +252,8 @@ h1, h2, h3, p, span {
   <!-- FLUFFCAKE MENU -->
   <div id="page6" class="page">
   <div align="center">
-    <h1 id="location-name" class="fluffmsg">FLUFFCAKES</h1>
-    <div id="area-container">
+    <h1 class="fluffmsg">FLUFFCAKES</h1>
+    <div id="fluff-container">
   </div>
   </div>
 </div>
@@ -538,6 +538,10 @@ h1, h2, h3, p, span {
       //also update play area
       document.getElementById("area-container").style.height=h;
       document.getElementById("area-container").style.width=w;
+      
+      //FLUFF ADDITION
+      document.getElementById("fluff-container").style.height=h;
+      document.getElementById("fluff-container").style.width=w;
     }
     
     //autoupdate
