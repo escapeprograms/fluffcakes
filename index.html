@@ -1,6 +1,6 @@
 <head>
   <title>Easter Egg Game</title>
-  <link rel="icon" href="/eastergame/Images/Misc/egg.png" type="image/png">
+  <link rel="icon" href="/fluffcakes/Images/Misc/egg.png" type="image/png">
 <style>
 h1, h2, h3, p, span {
   font-family:"Lucida Console";
@@ -161,7 +161,7 @@ h1, h2, h3, p, span {
 </head>
 <body onload="init()">
   <h3 style="display:none;" id="counter">
-    <span id="egg1" class="egg" onClick="findegg(1)">Easter Egg</span><img id = "egg2" onClick="findegg(2)" width="20" style="vertical-align:middle;padding:5px;" src="/eastergame/Images/Misc/egg.png"align="middle">s: <span id="eggs">0</span>
+    <span id="egg1" class="egg" onClick="findegg(1)">Easter Egg</span><img id = "egg2" onClick="findegg(2)" width="20" style="vertical-align:middle;padding:5px;" src="/fluffcakes/Images/Misc/egg.png"align="middle">s: <span id="eggs">0</span>
   </h3>
 <div id="page0" class="page">
   <div align="center">
@@ -183,7 +183,7 @@ h1, h2, h3, p, span {
     <h3>Guide to the <span onClick="reset()">Easter Eggs</span></h3>
     <p><span onClick="reset()">Easter Eggs</span> are very elusive creatures.  They are triggered by a certain action. (ex: clicking <span onClick="findegg(5)">the egg</span> or pressing e)  Some <span onClick="reset()">easter eggs</span> require multiple steps to activate.  Also, no one likes smart @$$es who click on every instance of "<span onClick="reset()">easter egg</span>".  I'm telling you: <strong>I WILL RESET YOUR GAME</strong> if I catch you clicking on the words "<span onClick="reset()">easter egg</span>".  I mean, just click on <span onClick="findegg(6)">everything else</span>, though.  Doesn't hurt to try!  Also, another thing: there are a lot of other <span onClick="reset()">easter eggs</span> that don't actually count as eggs, but are just cool things to notice.</p>
     <br>
-    <img src="/eastergame/Images/Misc/key.png" class="key" id='key0' onClick="vars['hasguidekey']=true;hide('key0');alert('Hmm, I wonder what this key does...')">
+    <img src="/fluffcakes/Images/Misc/key.png" class="key" id='key0' onClick="vars['hasguidekey']=true;hide('key0');alert('Hmm, I wonder what this key does...')">
   </div>
   
   <div id="clickybtn" class="section" align="center">
@@ -191,7 +191,7 @@ h1, h2, h3, p, span {
     <button onClick="vars['btnclicks1']++;check('btnclicks1',5,unlock,'egg4');cbMsg(false);" style="padding:20px;"><p>Clicky Button</p></button>
     <br>
     <br>
-    <img src="/eastergame/Images/Misc/chest.png" id="egg4" class="chest" onClick="check('hasguidekey',true,findegg,4)" style="display:none;">
+    <img src="/fluffcakes/Images/Misc/chest.png" id="egg4" class="chest" onClick="check('hasguidekey',true,findegg,4)" style="display:none;">
     <p id="cbmsg" class="fluffmsg" onClick="vars.cbmsg++;cbMsg(false);"></p>
   </div>
 </div>
@@ -209,8 +209,8 @@ h1, h2, h3, p, span {
         <span class="map-btn" id="mapbtn6" onClick="visit(99)">The Fog</span>
         <span class="map-btn" id="mapbtn7" onClick="visit(99)">The Volcano</span>
         <span class="map-btn" id="mapbtn8" onClick="visit(99)">The Storm</span>
-        <img src="/eastergame/Images/Misc/map.png" height="100%">
-        <img src="/eastergame/Images/Misc/compass.png" id="map-compass" onClick="vars.hascompass=true;hide('map-compass');alert('Ooh, a compass!')">
+        <img src="/fluffcakes/Images/Misc/map.png" height="100%">
+        <img src="/fluffcakes/Images/Misc/compass.png" id="map-compass" onClick="vars.hascompass=true;hide('map-compass');alert('Ooh, a compass!')">
       </div>
   </div>
 </div>
@@ -755,8 +755,10 @@ h1, h2, h3, p, span {
     }
   </script>
     
-  <script src="/eastergame/Code/save.js"></script>
-  <script src="/eastergame/Code/init.js"></script>
-  <script src="/eastergame/Code/location.js"></script>
-  <script src="/eastergame/Code/effects.js"></script>
+  <script src="/fluffcakes/Code/save.js"></script>
+  <script src="/fluffcakes/Code/init.js"></script>
+  <script src="/fluffcakes/Code/location.js"></script>
+  <script src="/fluffcakes/Code/effects.js"></script>
     </body>
+
+
