@@ -16,18 +16,27 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
    this.active=true;
    
    this.create = function(){
-      var s = "position:absolute;left:"+pos[0]+";top"+pos[1]+";";
-      document.getElementById("fluff-container").innerHTML+="<div class='obs' style='"+s+"'></div>";
+      var style = "position:absolute;left:"+pos[0]+";top"+pos[1]+";";
+      document.getElementById("fluff-container").innerHTML+="<div class='obs' style='"+style+"'></div>";
    }
    this.draw = function(){
       document.getElementsByClassName("obs")[this.id].innerHTML="<img src = '"+this.img+"'>";
    }
-   this.update = function(type){
+   this.update = function(s){//array of attributes
       this.pos[0]+=this.vel[0];
       this.pos[1]+=this.vel[1];
       this.vel[0]+=this.acc[0];
       this.vel[1]+=this.acc[1];
-      document.getElementsByClassName("obs")[this.id].style="position:absolute;left:"+this.pos[0]+"%;top:"+this.pos[1]+"%;";
+      
+      if (s){s();}
+      if (!(this.size[0]/2<this.pos[0]<100-this.size[0]/2)||!(this.size[1]/2<this.pos[1]<100-this.pos[1]/2)){
+         this.active=false;
+      }
+      if (this.active){
+        document.getElementsByClassName("obs")[this.id].style="position:absolute;left:"+this.pos[0]+"%;top:"+this.pos[1]+"%;";
+      }else{
+        document.getElementsByClassName("obs")[this.id].style.display=none;
+      }
    }
 }
 
