@@ -15,6 +15,10 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
    this.size=size;//[width,height]
    this.active=true;
    
+   this.create = function(){
+      var s = "position:absolute;left:"+pos[0]+";top"+pos[1]+";";
+      document.getElementById("fluff-container").innerHTML+="<div class='obs' style='"+s+"'></div>";
+   }
    this.draw = function(){
       document.getElementsByClassName("obs")[this.id].innerHTML="<img src = '"+this.img+"'>";
    }
