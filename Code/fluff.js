@@ -16,11 +16,11 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
    this.active=true;
    
    this.create = function(){
-      var style = "position:absolute;left:"+pos[0]+";top"+pos[1]+";";
+      var style = "position:absolute;left:"+pos[0]+";top"+pos[1]+";width:"+this.size[0]+"%;height:"+this.size[1]+";";
       document.getElementById("fluff-container").innerHTML+="<div class='obs' style='"+style+"'></div>";
    }
    this.draw = function(){
-      document.getElementsByClassName("obs")[this.id].innerHTML="<img src = '"+this.img+"'>";
+      document.getElementsByClassName("obs")[this.id].innerHTML="<img src = '"+this.img+"' width='100%' height='100%'>";
    }
    this.update = function(s){//array of attributes
       if (this.active){
@@ -42,7 +42,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
 }
 
 
-var obstacles = [new Obstacle(0,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[100,100])];
+var obstacles = [new Obstacle(0,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[20,10])];
 for (var i = 0; i < obstacles.length; i++){
    obstacles[i].create();
    obstacles[i].draw();
