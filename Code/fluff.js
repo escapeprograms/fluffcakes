@@ -27,7 +27,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
       this.pos[1]+=this.vel[1];
       this.vel[0]+=this.acc[0];
       this.vel[1]+=this.acc[1];
-      document.getElementsByClassName("obs")[this.id].style="left:"+this.pos[0]+"%;top:"+this.pos[1]+"%;";
+      document.getElementsByClassName("obs")[this.id].style="position:absolute;left:"+this.pos[0]+"%;top:"+this.pos[1]+"%;";
    }
 }
 
