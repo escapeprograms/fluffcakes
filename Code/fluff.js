@@ -30,7 +30,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
          this.vel[1]+=this.acc[1];
 
          if (s){s();}
-         if (!(this.size[0]/2<this.pos[0]<100-this.size[0]/2)||!(this.size[1]/2<this.pos[1]<100-this.pos[1]/2)){
+         if (!(this.size[0]/2<this.pos[0]<100-(this.size[0]/2))||!(this.size[1]/2<this.pos[1]<100-(this.size[1]/2))){
             this.active=false;
          }
 
