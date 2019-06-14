@@ -22,9 +22,25 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
    this.draw = function(){
       document.getElementsByClassName("obs")[this.id].innerHTML="<img src = '"+this.img+"'>";
    }
+   this.update = function(type){
+      this.pos[0]+=this.vel[0];
+      this.pos[1]+=this.vel[1];
+      this.vel[0]+=this.acc[0];
+      this.vel[1]+=this.acc[1];
+   }
 }
 
 
 
 
 var obstacles = [new Obstacle(0,[0,0],[0,0],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[100,100])];
+for (var i = 0; i < obstacles.length; i++){
+   obstacles[i].create();
+}
+
+setInterval(()=>{
+   for (var i = 0; i < obstacles.length; i++){
+   obstacles[i].update();
+   obstacles[i].draw();
+}
+},10);
