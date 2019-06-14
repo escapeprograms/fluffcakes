@@ -34,8 +34,8 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
             this.active=false;
          }
 
-        document.getElementsByClassName("obs")[this.id].style=
-           "position:absolute;left:"+this.pos[0]+"%;top:"+this.pos[1]+"%;width:"+this.size[0]+"%;height:"+this.size[1]+";";
+        document.getElementsByClassName("obs")[this.id].style.left=this.pos[0]+"%";
+        document.getElementsByClassName("obs")[this.id].style.top=this.pos[1]+"%";
       }else{
         document.getElementsByClassName("obs")[this.id].style.display='none';
       }
