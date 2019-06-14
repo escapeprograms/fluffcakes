@@ -42,7 +42,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
 }
 
 
-var obstacles = [new Obstacle(0,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[10,1])];
+var obstacles = [new Obstacle(0,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[5,5])];
 for (var i = 0; i < obstacles.length; i++){
    obstacles[i].create();
    obstacles[i].draw();
