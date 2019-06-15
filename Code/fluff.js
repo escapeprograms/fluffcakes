@@ -45,7 +45,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
 
 //special functions
 function bounce(id){
-   var o = document.getElementsByClassName("obs")[id];
+   var o = obstacles[id];
    if (0>o.pos[0]||o.pos[0]>100 || 0>o.pos[1]||o.pos[1]>100){
         if (o.pos[0]>100||o.pos[0]<0){
            o.vel[0]*=-1;
