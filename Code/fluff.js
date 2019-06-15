@@ -25,12 +25,13 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    }
    this.update = function(){
       if (this.active){
+         if (this.s){this.s(id);}
+         
          this.pos[0]+=this.vel[0];
          this.pos[1]+=this.vel[1];
          this.vel[0]+=this.acc[0];
          this.vel[1]+=this.acc[1];
-
-         if (this.s){this.s(id);}
+         
          if (0>this.pos[0]||this.pos[0]>100 || 0>this.pos[1]||this.pos[1]>100){
            this.active=false;
          }
