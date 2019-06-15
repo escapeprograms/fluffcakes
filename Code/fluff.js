@@ -15,6 +15,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    this.size=size;//[width,height]
    this.active=true;
    this.s = s;//[special function, args]
+   this.t = 0;
    
    this.create = function(){
       var style = "transform:translate(-50%,-50%);position:absolute;left:"+this.pos[0]+";top"+this.pos[1]+";width:"+this.size[0]+"%;height:"+this.size[1]+"%;";
@@ -38,6 +39,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
 
         document.getElementsByClassName("obs")[this.id].style.left=this.pos[0]+"%";
         document.getElementsByClassName("obs")[this.id].style.top=this.pos[1]+"%";
+        this.t++;
       }else{
         document.getElementsByClassName("obs")[this.id].style.display='none';
       }
@@ -46,13 +48,15 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
 
 //special functions
 function bounce(id){
-     if (obstacles[id].pos[0]>=100-obstacles[id].vel[0]||obstacles[id].pos[0]<=obstacles[id].vel[0]){
-        obstacles[id].vel[0]*=-1;
-       // alert(obstacles[id].vel);
-     }
-     if (obstacles[id].pos[1]>=100-obstacles[id].vel[1]||obstacles[id].pos[1]<=obstacles[id].vel[1]){
-        obstacles[id].vel[1]*=-1;
-       // alert(obstacles[id].vel);
+     if (this.t>1){
+        if (obstacles[id].pos[0]>=100-obstacles[id].vel[0]||obstacles[id].pos[0]<=obstacles[id].vel[0]){
+           obstacles[id].vel[0]*=-1;
+          // alert(obstacles[id].vel);
+        }
+        if (obstacles[id].pos[1]>=100-obstacles[id].vel[1]||obstacles[id].pos[1]<=obstacles[id].vel[1]){
+           obstacles[id].vel[1]*=-1;
+          // alert(obstacles[id].vel);
+        }
      }
 }
 
