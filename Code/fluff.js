@@ -48,9 +48,11 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
 function bounce(id){
      if (obstacles[id].pos[0]>100||obstacles[id].pos[0]<0){
         obstacles[id].vel[0]*=-1;
+        alert(obstacles[id].vel);
      }
      if (obstacles[id].pos[1]>100||obstacles[id].pos[1]<0){
         obstacles[id].vel[1]*=-1;
+        alert(obstacles[id].vel);
      }
 }
 
