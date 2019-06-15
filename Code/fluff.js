@@ -44,12 +44,13 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
 
 //special functions
 function bounce(id){
-   if (0>this.pos[0]||this.pos[0]>100 || 0>this.pos[1]||this.pos[1]>100){
-        if (this.pos[0]>100||this.pos[0]<0){
-           this.vel[0]*=-1;
+   var o = document.getElementsByClassName("obs")[id];
+   if (0>o.pos[0]||o.pos[0]>100 || 0>o.pos[1]||o.pos[1]>100){
+        if (o.pos[0]>100||o.pos[0]<0){
+           o.vel[0]*=-1;
         }
-        if (this.pos[1]>100||this.pos[1]<0){
-           this.vel[1]*=-1;
+        if (o.pos[1]>100||o.pos[1]<0){
+           o.vel[1]*=-1;
         }
    }
 }
