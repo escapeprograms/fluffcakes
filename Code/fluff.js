@@ -22,21 +22,16 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
    this.draw = function(){
       document.getElementsByClassName("obs")[this.id].innerHTML="<img src = '"+this.img+"' width='100%' height='100%'>";
    }
-   this.update = function(s){//array of attributes
+   this.update = function(s){//s is a function
       if (this.active){
          this.pos[0]+=this.vel[0];
          this.pos[1]+=this.vel[1];
          this.vel[0]+=this.acc[0];
          this.vel[1]+=this.acc[1];
 
-         if (s){s();}
+         if (s){s(id);}
          if (0>this.pos[0]||this.pos[0]>100 || 0>this.pos[1]||this.pos[1]>100){
-            if (s.search("bounce")!==-1){
-              if (this.pos[0]<0||this.pos[0]>100){this.vel[0]=-this.vel[0];}
-              if (this.pos[1]<0||this.pos[1]>100){this.vel[1]=-this.vel[1];}
-            }else{
-              this.active=false;
-            }
+           this.active=false;
          }
 
         document.getElementsByClassName("obs")[this.id].style.left=this.pos[0]+"%";
@@ -47,6 +42,17 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
    }
 }
 
+//special functions
+function bounce(id){
+   if (0>this.pos[0]||this.pos[0]>100 || 0>this.pos[1]||this.pos[1]>100){
+        if (this.pos[0]>100||this.pos[0]<0){
+           this.vel[0]*=-1;
+        }
+        if (this.pos[1]>100||this.pos[1]<0){
+           this.vel[1]*=-1;
+        }
+   }
+}
 
 var obstacles = [new Obstacle(0,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[5,5])];
 for (var i = 0; i < obstacles.length; i++){
@@ -56,6 +62,6 @@ for (var i = 0; i < obstacles.length; i++){
 
 setInterval(()=>{
    for (var i = 0; i < obstacles.length; i++){
-   obstacles[i].update();
+   obstacles[i].update((id)=>{bounce(id);});;
 }
 },10);
