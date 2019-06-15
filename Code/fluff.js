@@ -61,9 +61,18 @@ for (var i = 0; i < obstacles.length; i++){
    obstacles[i].create();
    obstacles[i].draw();
 }
-
+//update
 setInterval(()=>{
    for (var i = 0; i < obstacles.length; i++){
    obstacles[i].update();
 }
 },10);
+
+//add new
+setInterval(()=>{
+   var n = obstacles.length-1;
+   obstacles.push(new Obstacle(n+1,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[4,5.5]));
+   obstalces[n].create();
+   obstacles[n].draw();
+}
+
