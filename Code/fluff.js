@@ -5,7 +5,7 @@ function movePlayer(event){
    document.getElementById("player").style="transform:translate(-50%,-50%);position:absolute;left:"+(x)+"px;top:"+(y)+"px;";
 }
 
-function Obstacle(id,pos,vel,acc,img,dmg,size){
+function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    this.id=id;//int
    this.pos=pos;//[x,y]
    this.vel=vel;//[dx,dy]
@@ -14,6 +14,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
    this.dmg=dmg;//int
    this.size=size;//[width,height]
    this.active=true;
+   this.s = s;//[special function, args]
    
    this.create = function(){
       var style = "transform:translate(-50%,-50%);position:absolute;left:"+this.pos[0]+";top"+this.pos[1]+";width:"+this.size[0]+"%;height:"+this.size[1]+"%;";
@@ -22,14 +23,14 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
    this.draw = function(){
       document.getElementsByClassName("obs")[this.id].innerHTML="<img src = '"+this.img+"' width='100%' height='100%'>";
    }
-   this.update = function(s){//s is a function
+   this.update = function(){
       if (this.active){
          this.pos[0]+=this.vel[0];
          this.pos[1]+=this.vel[1];
          this.vel[0]+=this.acc[0];
          this.vel[1]+=this.acc[1];
 
-         if (s){s(id);}
+         if (this.s){this.s(id);}
          if (0>this.pos[0]||this.pos[0]>100 || 0>this.pos[1]||this.pos[1]>100){
            this.active=false;
          }
@@ -55,7 +56,7 @@ function bounce(id){
    }
 }
 
-var obstacles = [new Obstacle(0,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[5,5])];
+var obstacles = [new Obstacle(0,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[5,5],(id)=>{bounce(id);})];
 for (var i = 0; i < obstacles.length; i++){
    obstacles[i].create();
    obstacles[i].draw();
@@ -63,6 +64,6 @@ for (var i = 0; i < obstacles.length; i++){
 
 setInterval(()=>{
    for (var i = 0; i < obstacles.length; i++){
-   obstacles[i].update((id)=>{bounce(id);});;
+   obstacles[i].update();
 }
 },10);
