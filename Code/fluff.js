@@ -31,7 +31,12 @@ function Obstacle(id,pos,vel,acc,img,dmg,size){
 
          if (s){s();}
          if (0>this.pos[0]||this.pos[0]>100 || 0>this.pos[1]||this.pos[1]>100){
-            this.active=false;
+            if (s.search("bounce")!==-1){
+              if (this.pos[0]<0||this.pos[0]>100){this.vel[0]=-this.vel[0];}
+              if (this.pos[1]<0||this.pos[1]>100){this.vel[1]=-this.vel[1];}
+            }else{
+              this.active=false;
+            }
          }
 
         document.getElementsByClassName("obs")[this.id].style.left=this.pos[0]+"%";
@@ -53,4 +58,4 @@ setInterval(()=>{
    for (var i = 0; i < obstacles.length; i++){
    obstacles[i].update();
 }
-},100);
+},10);
