@@ -45,6 +45,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
       }
    }
 }
+var obstacles = [];
 
 //special functions
 function bounce(id){
@@ -60,7 +61,7 @@ function bounce(id){
      }
 }
 
-var obstacles = [];
+
 //update
 setInterval(()=>{
    for (var i = 0; i < obstacles.length; i++){
