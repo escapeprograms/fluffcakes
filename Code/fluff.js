@@ -51,11 +51,11 @@ var obstacles = [new Obstacle(0,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest
 function bounce(id){
      if (this.t>1){
         if (obstacles[id].pos[0]>=100-obstacles[id].vel[0]||obstacles[id].pos[0]<=obstacles[id].vel[0]){
-           obstacles[id].vel[0]*=0;
+           obstacles[id].vel[0]*=-1;
            alert(obstacles[id].vel);
         }
         if (obstacles[id].pos[1]>=100-obstacles[id].vel[1]||obstacles[id].pos[1]<=obstacles[id].vel[1]){
-           obstacles[id].vel[1]*=0;
+           obstacles[id].vel[1]*=-1;
            alert(obstacles[id].vel);
         }
      }
