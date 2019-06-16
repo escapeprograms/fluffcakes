@@ -94,3 +94,14 @@ setInterval(()=>{
    obstacles[n].draw();
 },1000);
 
+//flush all objects
+function flush(){
+   var c = document.getElementById("fluff-container");//c for container
+   var o = document.getElementsByClassName("obs");
+   for (var i = 0; i < obstacles.length; i++){
+      var e = o[i];
+      if (e.style.display=="none"){
+         c.removeChild(e);
+      }
+   }
+}
