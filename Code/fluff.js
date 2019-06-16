@@ -26,7 +26,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    }
    this.update = function(){
       if (this.active){
-         if (this.s){this.s(id);}
+         if (this.s){this.s(this);}
          
          this.pos[0]+=this.vel[0];
          this.pos[1]+=this.vel[1];
@@ -45,18 +45,18 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
       }
    }
 }
-var obstacles = [new Obstacle(0,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[5.5,4],(id)=>{bounce(id);})];
+var obstacles = [new Obstacle(0,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[5.5,4],(q)=>{bounce(q);})];
 
 //special functions
-function bounce(id){
-     if (this.t>1){
-        if (obstacles[id].pos[0]>=100-obstacles[id].vel[0]||obstacles[id].pos[0]<=obstacles[id].vel[0]){
-           obstacles[id].vel[0]*=-1;
-           alert(obstacles[id].vel);
+function bounce(q){
+     if (q.t>1){
+        if (q.pos[0]>=100-q.vel[0]||q.pos[0]<=q.vel[0]){
+           q.vel[0]*=-1;
+           alert(q.vel);
         }
-        if (obstacles[id].pos[1]>=100-obstacles[id].vel[1]||obstacles[id].pos[1]<=obstacles[id].vel[1]){
-           obstacles[id].vel[1]*=-1;
-           alert(obstacles[id].vel);
+        if (q.pos[1]>=100-q.vel[1]||q.pos[1]<=q.vel[1]){
+           q.vel[1]*=-1;
+           alert(q.vel);
         }
      }
 }
