@@ -45,7 +45,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
       }
    }
 }
-var obstacles = [new Obstacle(0,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[4,5.5]),new Obstacle(1,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[4,5.5])];
+var obstacles = [new Obstacle(0,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[4,5.5])];
 
 //special functions
 function bounce(id){
