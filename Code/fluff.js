@@ -16,6 +16,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    this.active=true;
    if (s){this.s = s;}//[special function, args]}
    this.t = 0;
+   this.angle = 0;//int
    
    this.create = function(){
       var style = "transform:translate(-50%,-50%);position:absolute;left:"+this.pos[0]+";top"+this.pos[1]+";width:"+this.size[0]+"%;height:"+this.size[1]+"%;";
@@ -27,19 +28,21 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    this.update = function(){
       if (this.active){
          if (this.s){this.s(this);}
-         
+         //update pos and vel
          this.pos[0]+=this.vel[0];
          this.pos[1]+=this.vel[1];
          this.vel[0]+=this.acc[0];
          this.vel[1]+=this.acc[1];
-         
+         //destroy object
          if (0>this.pos[0]||this.pos[0]>100 || 0>this.pos[1]||this.pos[1]>100){
            this.active=false;
          }
-
-        document.getElementsByClassName("obs")[this.id].style.left=this.pos[0]+"%";
-        document.getElementsByClassName("obs")[this.id].style.top=this.pos[1]+"%";
-        this.t++;
+         //update visuals
+         document.getElementsByClassName("obs")[this.id].style.left=this.pos[0]+"%";
+         document.getElementsByClassName("obs")[this.id].style.top=this.pos[1]+"%";
+         document.getElementsByClassName("obs")[this.id].style.transform="rotate("+this.angle+"deg);";
+         //time
+         this.t++;
       }else{
         document.getElementsByClassName("obs")[this.id].style.display='none';
       }
@@ -58,6 +61,10 @@ function bounce(q){
         }
      }
 }
+function spin(q,vel){
+   q.angle+=vel;
+}
+
 //testing
 for (var i = 0; i < obstacles.length; i++){
    obstacles[i].create();
