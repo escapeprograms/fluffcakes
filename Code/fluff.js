@@ -14,7 +14,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    this.dmg=dmg;//int
    this.size=size;//[width,height]
    this.active=true;
-   this.s = s;//[special function, args]
+   if (s){this.s = s;}//[special function, args]}
    this.t = 0;
    
    this.create = function(){
