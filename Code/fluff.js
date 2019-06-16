@@ -45,18 +45,16 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
       }
    }
 }
-var obstacles = [new Obstacle(0,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[5.5,4],(q)=>{bounce(q);})];
+var obstacles = [new Obstacle(0,[10,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[4,5.5],(q)=>{bounce(q);})];
 
 //special functions
 function bounce(q){
      if (q.t>1){
         if (q.pos[0]>=100-q.vel[0]||q.pos[0]<=q.vel[0]){
            q.vel[0]*=-1;
-           alert(q.vel);
         }
         if (q.pos[1]>=100-q.vel[1]||q.pos[1]<=q.vel[1]){
            q.vel[1]*=-1;
-           alert(q.vel);
         }
      }
 }
