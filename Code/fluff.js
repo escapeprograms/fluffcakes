@@ -45,7 +45,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
       }
    }
 }
-var obstacles = [];
+var obstacles = [new Obstacle(0,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[4,5.5]),new Obstacle(1,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[4,5.5])];
 
 //special functions
 function bounce(id){
@@ -69,11 +69,11 @@ setInterval(()=>{
 }
 },10);
 
-//add new
+/*add new
 setInterval(()=>{
    var n = obstacles.length;
    obstacles.push(new Obstacle(n,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[4,5.5]));
    obstalces[n].create();
    obstacles[n].draw();
 },1000);
-
+*/
