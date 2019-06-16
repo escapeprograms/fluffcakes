@@ -19,7 +19,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    this.angle = 0;//int
    
    this.create = function(){
-      var style = "position:absolute;left:"+this.pos[0]+";top"+this.pos[1]+";width:"+this.size[0]+"%;height:"+this.size[1]+"%;";
+      var style = "transform:translate(-50%,-50%);position:absolute;left:"+this.pos[0]+";top"+this.pos[1]+";width:"+this.size[0]+"%;height:"+this.size[1]+"%;";
       document.getElementById("fluff-container").innerHTML+="<div class='obs' style='"+style+"'></div>";
    }
    this.draw = function(){
@@ -40,7 +40,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
          //update visuals
          document.getElementsByClassName("obs")[this.id].style.left=this.pos[0]+"%";
          document.getElementsByClassName("obs")[this.id].style.top=this.pos[1]+"%";
-         document.getElementsByClassName("obs")[this.id].style.transform="rotate("+this.angle+"deg)";
+         document.getElementsByClassName("obs")[this.id].style.transform="translate(-50%,-50%);rotate("+this.angle+"deg)";
          //time
          this.t++;
       }else{
