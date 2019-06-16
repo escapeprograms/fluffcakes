@@ -40,7 +40,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
          //update visuals
          document.getElementsByClassName("obs")[this.id].style.left=this.pos[0]+"%";
          document.getElementsByClassName("obs")[this.id].style.top=this.pos[1]+"%";
-         document.getElementsByClassName("obs")[this.id].style.transform="translate(-50%,-50%);rotate("+this.angle+"deg)";
+         document.getElementsByClassName("obs")[this.id].style.transform="translate(-50%,-50%) rotate("+this.angle+"deg)";
          //time
          this.t++;
       }else{
@@ -51,6 +51,11 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
 var obstacles = [new Obstacle(0,[10,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[4,5.5],(q)=>{bounce(q);spin(q,1);})];
 
 //special functions
+function disappear(q,t){
+   if (q.t>=t){
+      q.active=false;
+   }
+}
 function bounce(q){
      if (q.t>1){
         if (q.pos[0]>=100-q.vel[0] || q.pos[0]<= -q.vel[0]){
@@ -63,6 +68,9 @@ function bounce(q){
 }
 function spin(q,vel){
    q.angle+=vel;
+}
+function gravity(q,acc){
+   q.acc=-acc;
 }
 
 //testing
