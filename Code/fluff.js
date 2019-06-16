@@ -95,6 +95,15 @@ setInterval(()=>{
 },1000);
 
 //flush all objects
+function flushArray(a){
+   var t = [];
+   for (var i = 0; i < a.length; i++){
+      if (a[i]){
+         t.push(a[i]);
+      }
+   }
+   return t;
+}
 function flush(){
    var c = document.getElementById("fluff-container");//c for container
    var o = document.getElementsByClassName("obs");
@@ -110,13 +119,4 @@ function flush(){
       }
    }
    obstacles=flushArray(obstacles);
-}
-function flushArray(a){
-   var t = [];
-   for (var i = 0; i < a.length; i++){
-      if (a[i]){
-         t.push(a[i]);
-      }
-   }
-   return t;
 }
