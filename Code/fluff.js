@@ -50,10 +50,10 @@ var obstacles = [new Obstacle(0,[10,0],[1,1],[0,0],"/fluffcakes/Images/Misc/ches
 //special functions
 function bounce(q){
      if (q.t>1){
-        if (q.pos[0]>=100-q.vel[0]||q.pos[0]<=q.vel[0]){
+        if (q.pos[0]>=100-q.vel[0] || q.pos[0]<= -q.vel[0]){
            q.vel[0]*=-1;
         }
-        if (q.pos[1]>=100-q.vel[1]||q.pos[1]<=q.vel[1]){
+        if (q.pos[1]>=100-q.vel[1] || q.pos[1]<= -q.vel[1]){
            q.vel[1]*=-1;
         }
      }
