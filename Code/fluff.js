@@ -60,7 +60,11 @@ function bounce(id){
         }
      }
 }
-
+//testing
+for (var i = 0; i < obstacles.length; i++){
+   obstalces[i].create();
+   obstacles[i].draw();
+}
 
 //update
 setInterval(()=>{
