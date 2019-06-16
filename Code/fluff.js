@@ -73,11 +73,11 @@ setInterval(()=>{
 }
 },10);
 
-/*add new
+//add new
 setInterval(()=>{
    var n = obstacles.length;
    obstacles.push(new Obstacle(n,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[4,5.5]));
-   obstalces[n].create();
+   obstacles[n].create();
    obstacles[n].draw();
 },1000);
-*/
+
