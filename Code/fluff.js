@@ -57,7 +57,9 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
       }
    }
    this.collision = function(){
-      if ((this.pos[0]-mouseX)*(this.pos[0]-mouseX)+(this.pos[1]-mouseY)*(this.pos[1]-mouseY)<=0.0004){
+      var dx = this.pos[0]-mouseX;
+      var dy = this.pos[1]-mouseY;
+      if (Math.sqrt((x*x)+(y*y))<=2){
          hp-=this.dmg;
          this.active=false;
          console.log(hp);
