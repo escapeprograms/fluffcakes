@@ -59,10 +59,10 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    this.collision = function(){
       var dx = this.pos[0]-mouseX;
       var dy = this.pos[1]-mouseY;
-      if (Math.sqrt((dx*dx)+2*(dy*dy))<=2){
+      if (Math.sqrt((dx*dx)+2*(dy*dy))<=4){
          hp-=this.dmg;
          this.active=false;
-         console.log(hp);
+         console.log(Math.sqrt((dx*dx)+2*(dy*dy))+"hp: "+hp);
       }
    }
 }
