@@ -2,8 +2,9 @@
 var mouseX = 0;
 var mouseY = 0;
 
-var aOffX = document.getElementById("fluff-container").offsetLeft;
+var aOffX = document.getElementById("fluff-container").offsetLeft;//needs updating in index.js
 var aOffY = document.getElementById("fluff-container").offsetTop;
+
 function movePlayer(event){
    mouseX = (event.clientX-aOffX) / parseFloat(document.getElementById("fluff-container").style.width);//returns a %
    mouseY = (event.clientY-aOffY) / parseFloat(document.getElementById("fluff-container").style.height);//returns a %
