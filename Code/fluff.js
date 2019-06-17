@@ -92,15 +92,6 @@ setInterval(()=>{
 }
 },10);
 
-//add new testing
-setInterval(()=>{
-   var n = obstacles.length;
-   var a = Math.atan(mouseY/mouseX);
-   obstacles.push(new Obstacle(n,[0,0],[Math.cos(a),Math.sin(a)],[0,0],"/fluffcakes/Images/Misc/face.png",1,[4,5.5]));
-   obstacles[n].create();
-   obstacles[n].draw();
-},1000);
-
 //flush all objects
 function flushArray(a){
    var t = [];
@@ -116,3 +107,19 @@ function flush(){
    c.innerHTML="";
    obstacles=[];
 }
+
+//attack orders
+var order = ["","","","",""];
+
+function spawnObstacle(type,pos,vel,acc,img,dmg,size){
+   
+}
+
+//add new testing
+setInterval(()=>{
+   var n = obstacles.length;
+   var a = Math.atan(mouseY/mouseX);
+   obstacles.push(new Obstacle(n,[0,0],[Math.cos(a),Math.sin(a)],[0,0],"/fluffcakes/Images/Misc/face.png",1,[4,5.5]));
+   obstacles[n].create();
+   obstacles[n].draw();
+},1000);
