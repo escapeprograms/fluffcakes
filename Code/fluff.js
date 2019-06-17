@@ -1,8 +1,10 @@
-//testing
+//movePlayer
+var mouseX = 0;
+var mouseY = 0;
 function movePlayer(event){
-   var x = event.clientX;
-   var y = event.clientY;
-   document.getElementById("player").style="transform:translate(-50%,-50%);position:absolute;left:"+(x)+"px;top:"+(y)+"px;";
+   mouseX = event.clientX;
+   mouseY = event.clientY;
+   document.getElementById("player").style="transform:translate(-50%,-50%);position:absolute;left:"+(mouseX)+"px;top:"+(mouseY)+"px;";
 }
 
 function Obstacle(id,pos,vel,acc,img,dmg,size,s){
@@ -86,10 +88,11 @@ setInterval(()=>{
 }
 },10);
 
-//add new
+//add new testing
 setInterval(()=>{
    var n = obstacles.length;
-   obstacles.push(new Obstacle(n,[0,0],[1,1],[0,0],"/fluffcakes/Images/Misc/face.png",0,[4,5.5]));
+   var a = atan(mouseY/mouseX);
+   obstacles.push(new Obstacle(n,[0,0],[cos(a),sin(a)],[0,0],"/fluffcakes/Images/Misc/face.png",1,[4,5.5]));
    obstacles[n].create();
    obstacles[n].draw();
 },1000);
