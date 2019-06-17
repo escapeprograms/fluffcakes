@@ -111,7 +111,7 @@ function flush(){
    for (var i = 0; i < obstacles.length; i++){
       var e = o[i];
       if (e.style.display=="none"){
-         c.removeChild(e);
+        // c.removeChild(e);
          obstacles[i]=undefined;
       }else{
          obstacles[i].id=id;
