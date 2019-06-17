@@ -7,8 +7,8 @@ var aOffX = document.getElementById("fluff-container").offsetLeft;//needs updati
 var aOffY = document.getElementById("fluff-container").offsetTop;
 
 function movePlayer(event){
-   mouseX = (event.clientX-aOffX) / parseFloat(document.getElementById("fluff-container").style.width);//returns a %
-   mouseY = (event.clientY-aOffY) / parseFloat(document.getElementById("fluff-container").style.height);//returns a %
+   mouseX = 100*(event.clientX-aOffX) / parseFloat(document.getElementById("fluff-container").style.width);//returns a %
+   mouseY = 100*(event.clientY-aOffY) / parseFloat(document.getElementById("fluff-container").style.height);//returns a %
    document.getElementById("player").style="transform:translate(-50%,-50%);position:absolute;left:"+(event.clientX)+"px;top:"+(event.clientY)+"px;";
 }
 
@@ -59,7 +59,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    this.collision = function(){
       var dx = this.pos[0]-mouseX;
       var dy = this.pos[1]-mouseY;
-      if (Math.sqrt((dx*dx)+(dy*dy))<=2){
+      if (Math.sqrt((dx*dx)+2*(dy*dy))<=2){
          hp-=this.dmg;
          this.active=false;
          console.log(hp);
