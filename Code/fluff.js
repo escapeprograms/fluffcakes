@@ -106,17 +106,6 @@ function flushArray(a){
 }
 function flush(){
    var c = document.getElementById("fluff-container");//c for container
-   var o = document.getElementsByClassName("obs");
-   var id = 0;
-   for (var i = 0; i < obstacles.length; i++){
-      var e = o[i];
-      if (e.style.display=="none"){
-        // c.removeChild(e);
-         obstacles[i]=undefined;
-      }else{
-         obstacles[i].id=id;
-         id++;
-      }
-   }
-   obstacles=flushArray(obstacles);
+   c.innerHTML="";
+   obstacles=[];
 }
