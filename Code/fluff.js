@@ -91,7 +91,7 @@ setInterval(()=>{
 //add new testing
 setInterval(()=>{
    var n = obstacles.length;
-   var a = atan(mouseY/mouseX);
+   var a = Math.atan(mouseY/mouseX);
    obstacles.push(new Obstacle(n,[0,0],[cos(a),sin(a)],[0,0],"/fluffcakes/Images/Misc/face.png",1,[4,5.5]));
    obstacles[n].create();
    obstacles[n].draw();
