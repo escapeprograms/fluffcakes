@@ -1,6 +1,7 @@
 //movePlayer
 var mouseX = 0;
 var mouseY = 0;
+var hp = 5;
 
 var aOffX = document.getElementById("fluff-container").offsetLeft;//needs updating in index.js
 var aOffY = document.getElementById("fluff-container").offsetTop;
@@ -34,6 +35,8 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    this.update = function(){
       if (this.active){
          if (this.s){this.s(this);}
+         //collision
+         this.collision();
          //update pos and vel
          this.pos[0]+=this.vel[0];
          this.pos[1]+=this.vel[1];
@@ -51,6 +54,12 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
          this.t++;
       }else{
         document.getElementsByClassName("obs")[this.id].style.display='none';
+      }
+   }
+   this.collision = function(){
+      if ((this.pos[0]-mouseX)*(this.pos[0]-mouseX)+(this.pos[1]-mouseY)*(this.pos[1]-mouseY)<=4){
+         hp-=this.dmg;
+         alert(hp);
       }
    }
 }
