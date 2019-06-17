@@ -1,10 +1,13 @@
 //movePlayer
 var mouseX = 0;
 var mouseY = 0;
+
+var aOffX = document.getElementById("fluff-container").offsetLeft;
+var aOffY = document.getElementById("fluff-container").offsetTop;
 function movePlayer(event){
-   mouseX = event.clientX;
-   mouseY = event.clientY;
-   document.getElementById("player").style="transform:translate(-50%,-50%);position:absolute;left:"+(mouseX)+"px;top:"+(mouseY)+"px;";
+   mouseX = (event.clientX-aOffX) / document.getElementById("fluff-container").width;
+   mouseY = (event.clientY-aOffY) / document.getElementById("fluff-container").height;
+   document.getElementById("player").style="transform:translate(-50%,-50%);position:absolute;left:"+(event.clientX)+"px;top:"+(event.clientY)+"px;";
 }
 
 function Obstacle(id,pos,vel,acc,img,dmg,size,s){
