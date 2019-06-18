@@ -64,10 +64,18 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    this.collision = function(){
       var dx = this.pos[0]-mouseX;
       var dy = this.pos[1]-mouseY;
-      if (Math.sqrt((dx*dx)+2*(dy*dy))<=40){
+      var s = [this.pos[0],this.pos[1]];
+      var r = 40;
+      var a = [this.pos[0]-this.size[0]/2,this.pos[1]-this.size[1]/2];
+      var b = [this.pos[0]+this.size[0]/2,this.pos[1]-this.size[1]/2];
+      var c = [this.pos[0]+this.size[0]/2,this.pos[1]+this.size[1]/2];
+      var d = [this.pos[0]-this.size[0]/2,this.pos[1]+this.size[1]/2]
+      if (intersectCircle(s,r,a,b) ||
+            intersectCircle(s,r,b,c) ||
+            intersectCircle(s,r,c,d) ||
+            intersectCircle(s,r,d,a)){
          hp-=this.dmg;
          this.active=false;
-         console.log(Math.sqrt((dx*dx)+2*(dy*dy))+"hp: "+hp);
       }
    }
 }
@@ -125,6 +133,30 @@ function flush(){
    obstacles=[];
 }
 
+//collision function
+function intersectCircle(c,r,a,b){//circle, radius, line endpoints
+   var m = (a[1]-b[1])/(a[0]-b[0]);
+   var dxa = a[0]-c[0];
+   var dya = a[1]-c[1];
+   var dxb = b[0]-c[0];
+   var dyb = b[1]-c[1];
+   var ac = Math.sqrt(dxa*dxa+dya*dya);
+   var bc = Math.sqrt(dxb*dxb+dyb*dyb);
+   var ab = Math.sqrt((a[0]-b[0])*(a[0]-b[0])+(a[1]-b[1])*(a[1]-b[1]));
+   var sina = Math.sin(Math.acos((ab*ab+ac*ac-bc*bc)/(2*ac*ab)));
+   if (ac<r){
+      return true;
+   }
+   else if (bc<r){
+      return true;
+   }
+   else if (sina/ac<r){
+      return true;
+   }
+   else {
+      return false;
+   }
+}
 //attack orders
 var order = ["","","","",""];
 
