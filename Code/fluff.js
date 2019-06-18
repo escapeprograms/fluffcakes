@@ -23,10 +23,14 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    this.active=true;
    if (s){this.s = s;}//[special function, args]}
    this.t = 0;
+   //visuals
    this.angle = 0;//int
+   this.vpos = [100*this.pos[0]/1100,100*this.pos[1]/500];
+   this.vsize = [100*this.size[0]/1100,100*this.size[1]/500];
    
    this.create = function(){
-      var style = "transform:translate(-50%,-50%);position:absolute;left:"+this.pos[0]+";top"+this.pos[1]+";width:"+this.size[0]+"%;height:"+this.size[1]+"%;";
+      var style = "transform:translate(-50%,-50%);position:absolute;left:"+this.vpos[0]+";top"+this.vpos[1]+
+          ";width:"+this.vsize[0]+"%;height:"+this.vsize[1]+"%;";
       document.getElementById("fluff-container").innerHTML+="<div class='obs' style='"+style+"'></div>";
    }
    this.draw = function(){
@@ -47,8 +51,9 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
            this.active=false;
          }
          //update visuals
-         document.getElementsByClassName("obs")[this.id].style.left=this.pos[0]+"%";
-         document.getElementsByClassName("obs")[this.id].style.top=this.pos[1]+"%";
+         this.vpos = [100*this.pos[0]/1100,100*this.pos[1]/500];
+         document.getElementsByClassName("obs")[this.id].style.left=this.vpos[0]+"%";
+         document.getElementsByClassName("obs")[this.id].style.top=this.vpos[1]+"%";
          document.getElementsByClassName("obs")[this.id].style.transform="translate(-50%,-50%) rotate("+this.angle+"deg)";
          //time
          this.t++;
@@ -66,7 +71,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
       }
    }
 }
-var obstacles = [new Obstacle(0,[10,0],[10,10],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[4,5.5],(q)=>{bounce(q);spin(q,1);})];
+var obstacles = [new Obstacle(0,[10,0],[10,10],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[80,80],(q)=>{bounce(q);spin(q,1);})];
 
 //special functions
 function disappear(q,t){
@@ -131,7 +136,7 @@ function spawnObstacle(type,pos,vel,acc,img,dmg,size){
 setInterval(()=>{
    var n = obstacles.length;
    var a = Math.atan(mouseY/mouseX);
-   obstacles.push(new Obstacle(n,[0,0],[10*Math.cos(a),10*Math.sin(a)],[0,0],"/fluffcakes/Images/Misc/face.png",1,[4,5.5]));
+   obstacles.push(new Obstacle(n,[0,0],[10*Math.cos(a),10*Math.sin(a)],[0,0],"/fluffcakes/Images/Misc/face.png",1,[40,40]));
    obstacles[n].create();
    obstacles[n].draw();
 },1000);
