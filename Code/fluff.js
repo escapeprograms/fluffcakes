@@ -47,7 +47,7 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
          this.vel[0]+=this.acc[0];
          this.vel[1]+=this.acc[1];
          //destroy object
-         if (0>this.pos[0]||this.pos[0]>100 || 0>this.pos[1]||this.pos[1]>100){
+         if (0>this.pos[0]||this.pos[0]>1100 || 0>this.pos[1]||this.pos[1]>500){
            this.active=false;
          }
          //update visuals
