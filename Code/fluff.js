@@ -7,11 +7,11 @@ var aOffX = document.getElementById("fluff-container").offsetLeft;//needs updati
 var aOffY = document.getElementById("fluff-container").offsetTop;
 
 function movePlayer(event){
-   mouseX = 100*(event.clientX-aOffX) / parseFloat(document.getElementById("fluff-container").style.width);//returns a %
-   mouseY = 100*(event.clientY-aOffY) / parseFloat(document.getElementById("fluff-container").style.height);//returns a %
+   mouseX = 1100*(event.clientX-aOffX) / parseFloat(document.getElementById("fluff-container").style.width);//returns pixel val (scaled)
+   mouseY = 500*(event.clientY-aOffY) / parseFloat(document.getElementById("fluff-container").style.height);//returns pixel val (scaled)
    document.getElementById("player").style="transform:translate(-50%,-50%);position:absolute;left:"+(event.clientX)+"px;top:"+(event.clientY)+"px;";
 }
-
+//canvas is 1100 x 500
 function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    this.id=id;//int
    this.pos=pos;//[x,y]
@@ -59,14 +59,14 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
    this.collision = function(){
       var dx = this.pos[0]-mouseX;
       var dy = this.pos[1]-mouseY;
-      if (Math.sqrt((dx*dx)+2*(dy*dy))<=4){
+      if (Math.sqrt((dx*dx)+2*(dy*dy))<=40){
          hp-=this.dmg;
          this.active=false;
          console.log(Math.sqrt((dx*dx)+2*(dy*dy))+"hp: "+hp);
       }
    }
 }
-var obstacles = [new Obstacle(0,[10,0],[1,1],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[4,5.5],(q)=>{bounce(q);spin(q,1);})];
+var obstacles = [new Obstacle(0,[10,0],[10,10],[0,0],"/fluffcakes/Images/Misc/chest.png",0,[4,5.5],(q)=>{bounce(q);spin(q,1);})];
 
 //special functions
 function disappear(q,t){
@@ -76,10 +76,10 @@ function disappear(q,t){
 }
 function bounce(q){
      if (q.t>1){
-        if (q.pos[0]>=100-q.vel[0] || q.pos[0]<= -q.vel[0]){
+        if (q.pos[0]>=1100-q.vel[0] || q.pos[0]<= -q.vel[0]){
            q.vel[0]*=-1;
         }
-        if (q.pos[1]>=100-q.vel[1] || q.pos[1]<= -q.vel[1]){
+        if (q.pos[1]>=500-q.vel[1] || q.pos[1]<= -q.vel[1]){
            q.vel[1]*=-1;
         }
      }
@@ -131,7 +131,7 @@ function spawnObstacle(type,pos,vel,acc,img,dmg,size){
 setInterval(()=>{
    var n = obstacles.length;
    var a = Math.atan(mouseY/mouseX);
-   obstacles.push(new Obstacle(n,[0,0],[Math.cos(a),Math.sin(a)],[0,0],"/fluffcakes/Images/Misc/face.png",1,[4,5.5]));
+   obstacles.push(new Obstacle(n,[0,0],[10*Math.cos(a),10*Math.sin(a)],[0,0],"/fluffcakes/Images/Misc/face.png",1,[4,5.5]));
    obstacles[n].create();
    obstacles[n].draw();
 },1000);
