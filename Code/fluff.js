@@ -62,12 +62,16 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
       }
    }
    this.collision = function(){
+      var m = size[1]/size[0];
+      var ang2 = Math.atan(m);
+      var diag = Math.sqrt((size[0]*size[0])/4+(size[1]*size[1])/4);
       var s = [mouseX,mouseY];
       var r = 40;
-      var a = [this.pos[0]-this.size[0]/2,this.pos[1]-this.size[1]/2];
-      var b = [this.pos[0]+this.size[0]/2,this.pos[1]-this.size[1]/2];
-      var c = [this.pos[0]+this.size[0]/2,this.pos[1]+this.size[1]/2];
-      var d = [this.pos[0]-this.size[0]/2,this.pos[1]+this.size[1]/2]
+      var a = [pos[0]+Math.cos(angle-ang2+Math.PI)*diag,pos[1]+Math.sin(angle-ang2+Math.PI)*diag];
+      var b = [pos[0]+Math.cos(angle+ang2)*diag,pos[1]+Math.sin(angle+ang2)*diag];
+      var c = [pos[0]+Math.cos(angle-ang2)*diag,pos[1]+Math.sin(angle-ang2)*diag];
+      var d = [pos[0]+Math.cos(angle+ang2+Math.PI)*diag,pos[1]+Math.sin(angle+ang2+Math.PI)*diag];
+      
       if (intersectCircle(s,r,a,b) ||
             intersectCircle(s,r,b,c) ||
             intersectCircle(s,r,c,d) ||
@@ -133,7 +137,6 @@ function flush(){
 
 //line/circle collision function wowie took a while to make .-.
 var intersectCircle= function(c,r,a,b){//circle, radius, line endpoints
-   var m = (a[1]-b[1])/(a[0]-b[0]);
    var dxa = a[0]-c[0];
    var dya = a[1]-c[1];
    var dxb = b[0]-c[0];
@@ -169,15 +172,15 @@ var intersectCircle= function(c,r,a,b){//circle, radius, line endpoints
 //attack orders
 var order = ["","","","",""];
 
-function spawnObstacle(type,pos,vel,acc,img,dmg,size){
-   
+function spawnObstacle(pos,vel,acc,img,dmg,size,s){
+   var n = obstacles.length;
+   obstacles.push(new Obstacle(n,pos,vel,acc,img,dmg,size,s));
+   obstacles[n].create();
+   obstacles[n].draw();
 }
 
 //add new testing
 setInterval(()=>{
-   var n = obstacles.length;
    var a = Math.atan(mouseY/mouseX);
-   obstacles.push(new Obstacle(n,[0,0],[10*Math.cos(a),10*Math.sin(a)],[0,0],"/fluffcakes/Images/Misc/face.png",1,[40,40]));
-   obstacles[n].create();
-   obstacles[n].draw();
+   spawnObstacle(n,[0,0],[10*Math.cos(a),10*Math.sin(a)],[0,0],"/fluffcakes/Images/Misc/face.png",1,[40,40]);
 },1000);
