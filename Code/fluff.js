@@ -75,7 +75,8 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
       if (intersectCircle(s,r,a,b) ||
             intersectCircle(s,r,b,c) ||
             intersectCircle(s,r,c,d) ||
-            intersectCircle(s,r,d,a)){
+            intersectCircle(s,r,d,a) ||
+            intersectBox(s,a,c)){
          hp-=this.dmg;
          this.active=false;
       }
@@ -147,27 +148,23 @@ var intersectCircle= function(c,r,a,b){//circle, radius, line endpoints
    var A = Math.acos((ab*ab+ac*ac-bc*bc)/(2*ac*ab));
    var cd = Math.sin(A)*ac;
    
-   if (ac<r){
-      return true;
-   }
-   else if (bc<r){
-      return true;
-   }
+   if (ac<r){return true;}
+   else if (bc<r){return true;}
    else if (cd<r){
-       if (
-        (a[0]<c[0]&&c[0]<b[0])||
-        (a[0]>c[0]&&c[0]>b[0])||
-        (a[1]<c[1]&&c[1]<b[1])||
-        (a[1]>c[1]&&c[1]>b[1])
-        ){
+       if (intersectBox(c,a,b)){
            return true;
-       }else{
-           return false;
-       }
+       }else{return false;}
    }
-   else {
-      return false;
-   }
+   else {return false;}
+};
+var intersectBox = function(p,a,b){//point, opposite verticies
+    if ((p[0]>a[0]&&p[0]<b[0])||
+        (p[0]>b[0]&&p[0]<a[0])){
+        if ((p[1]>a[1]&&p[1]<b[1])||
+            (p[1]>b[1]&&p[1]<a[1])){
+                return true;
+            }else{return false;}
+    }else{return false;}
 };
 //attack orders
 var order = ["","","","",""];
