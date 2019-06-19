@@ -133,6 +133,7 @@ function flush(){
 
 //line/circle collision function wowie took a while to make .-.
 var intersectCircle= function(c,r,a,b){//circle, radius, line endpoints
+   var m = (a[1]-b[1])/(a[0]-b[0]);
    var dxa = a[0]-c[0];
    var dya = a[1]-c[1];
    var dxb = b[0]-c[0];
@@ -140,15 +141,26 @@ var intersectCircle= function(c,r,a,b){//circle, radius, line endpoints
    var ac = Math.sqrt(dxa*dxa+dya*dya);
    var bc = Math.sqrt(dxb*dxb+dyb*dyb);
    var ab = Math.sqrt((a[0]-b[0])*(a[0]-b[0])+(a[1]-b[1])*(a[1]-b[1]));
-   var sina = Math.sin(Math.acos((ab*ab+ac*ac-bc*bc)/(2*ac*ab)));
+   var A = Math.acos((ab*ab+ac*ac-bc*bc)/(2*ac*ab));
+   var cd = Math.sin(A)*ac;
+   
    if (ac<r){
       return true;
    }
    else if (bc<r){
       return true;
    }
-   else if (sina*ac<r){
-      return true;
+   else if (cd<r){
+       if (
+        (a[0]<c[0]&&c[0]<b[0])||
+        (a[0]>c[0]&&c[0]>b[0])||
+        (a[1]<c[1]&&c[1]<b[1])||
+        (a[1]>c[1]&&c[1]>b[1])
+        ){
+           return true;
+       }else{
+           return false;
+       }
    }
    else {
       return false;
