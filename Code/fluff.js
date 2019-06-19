@@ -67,10 +67,10 @@ function Obstacle(id,pos,vel,acc,img,dmg,size,s){
       var diag = Math.sqrt((size[0]*size[0])/4+(size[1]*size[1])/4);
       var s = [mouseX,mouseY];
       var r = 40;
-      var a = [pos[0]+Math.cos(angle-ang2+Math.PI)*diag,pos[1]+Math.sin(angle-ang2+Math.PI)*diag];
-      var b = [pos[0]+Math.cos(angle+ang2)*diag,pos[1]+Math.sin(angle+ang2)*diag];
-      var c = [pos[0]+Math.cos(angle-ang2)*diag,pos[1]+Math.sin(angle-ang2)*diag];
-      var d = [pos[0]+Math.cos(angle+ang2+Math.PI)*diag,pos[1]+Math.sin(angle+ang2+Math.PI)*diag];
+      var a = [pos[0]+Math.cos(this.angle-ang2+Math.PI)*diag,pos[1]+Math.sin(this.angle-ang2+Math.PI)*diag];
+      var b = [pos[0]+Math.cos(this.angle+ang2)*diag,pos[1]+Math.sin(this.angle+ang2)*diag];
+      var c = [pos[0]+Math.cos(this.angle-ang2)*diag,pos[1]+Math.sin(this.angle-ang2)*diag];
+      var d = [pos[0]+Math.cos(this.angle+ang2+Math.PI)*diag,pos[1]+Math.sin(this.angle+ang2+Math.PI)*diag];
       
       if (intersectCircle(s,r,a,b) ||
             intersectCircle(s,r,b,c) ||
