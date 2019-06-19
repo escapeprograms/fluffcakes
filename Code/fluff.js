@@ -179,5 +179,5 @@ function spawnObstacle(pos,vel,acc,img,dmg,size,s){
 //add new testing
 setInterval(()=>{
    var a = Math.atan(mouseY/mouseX);
-   spawnObstacle(n,[0,0],[10*Math.cos(a),10*Math.sin(a)],[0,0],"/fluffcakes/Images/Misc/face.png",1,[40,40]);
+   spawnObstacle([0,0],[10*Math.cos(a),10*Math.sin(a)],[0,0],"/fluffcakes/Images/Misc/face.png",1,[40,40]);
 },1000);
